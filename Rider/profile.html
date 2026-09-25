@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rider profile — Hot Express Rider</title>
+<link rel="icon" href="../assets/images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/rider.css">
+
+</head>
+<body>
+<div class="mobile-topbar">
+  <button id="menuToggle" class="btn btn-outline btn-sm">☰</button>
+  <a href="../index.html" class="brand" style="font-size:15px"><img src="../assets/images/logo.png" style="height:22px"> Hot Express</a>
+  <span></span>
+</div>
+<div class="shell">
+  <aside class="sidebar">
+    <a href="../index.html" class="brand"><img src="../assets/images/logo.png" alt="Hot Express"> Hot Express</a>
+    <nav class="side-nav">
+      <div class="section-label">Rider</div>
+      <a href="dashboard.html"><span class="ic">🏍</span> Dashboard</a>
+      <a href="available-jobs.html"><span class="ic">📋</span> Available jobs</a>
+      <a href="active-delivery.html"><span class="ic">🚦</span> Active delivery</a>
+      <a href="delivery-history.html"><span class="ic">🕘</span> History</a>
+      <a href="earnings.html"><span class="ic">💰</span> Earnings</a>
+      <a href="notifications.html"><span class="ic">🔔</span> Notifications</a>
+      <a href="profile.html" class="active"><span class="ic">⚙️</span> Rider profile</a>
+      <div class="section-label">More</div>
+      <a href="../user/dashboard.html"><span class="ic">🏠</span> Buyer area</a>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="btn btn-outline btn-sm btn-block" id="logoutBtn">Log out</button>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div><h1>Rider profile</h1><div class="sub">Your rider details.</div></div>
+      <div class="avatar" data-user-avatar>—</div>
+    </div>
+    <div class="card" style="max-width:480px">
+      <form id="profileForm" novalidate>
+        <div class="field"><label for="phone">Phone</label><input type="tel" name="phone" id="phone" required></div>
+        <div class="field">
+          <label for="vehicleType">Vehicle type</label>
+          <select name="vehicleType" id="vehicleType">
+            <option value="bike">Motorbike</option>
+            <option value="keke">Keke / tricycle</option>
+            <option value="car">Car</option>
+            <option value="bicycle">Bicycle</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </form>
+    </div>
+  </main>
+</div>
+<script type="module">import { initRiderProfile } from "../js/rider.js"; initRiderProfile();</script>
+</body>
+</html>

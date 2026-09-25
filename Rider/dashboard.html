@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Hot Express Rider</title>
+<link rel="icon" href="../assets/images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/rider.css">
+
+</head>
+<body>
+<div class="mobile-topbar">
+  <button id="menuToggle" class="btn btn-outline btn-sm">☰</button>
+  <a href="../index.html" class="brand" style="font-size:15px"><img src="../assets/images/logo.png" style="height:22px"> Hot Express</a>
+  <span></span>
+</div>
+<div class="shell">
+  <aside class="sidebar">
+    <a href="../index.html" class="brand"><img src="../assets/images/logo.png" alt="Hot Express"> Hot Express</a>
+    <nav class="side-nav">
+      <div class="section-label">Rider</div>
+      <a href="dashboard.html" class="active"><span class="ic">🏍</span> Dashboard</a>
+      <a href="available-jobs.html"><span class="ic">📋</span> Available jobs</a>
+      <a href="active-delivery.html"><span class="ic">🚦</span> Active delivery</a>
+      <a href="delivery-history.html"><span class="ic">🕘</span> History</a>
+      <a href="earnings.html"><span class="ic">💰</span> Earnings</a>
+      <a href="notifications.html"><span class="ic">🔔</span> Notifications</a>
+      <a href="profile.html"><span class="ic">⚙️</span> Rider profile</a>
+      <div class="section-label">More</div>
+      <a href="../user/dashboard.html"><span class="ic">🏠</span> Buyer area</a>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="btn btn-outline btn-sm btn-block" id="logoutBtn">Log out</button>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div><h1>Rider dashboard</h1><div class="sub">Welcome, <span data-user-name>—</span> · <span data-user-location>—</span></div></div>
+      <div class="flex" style="gap:12px;align-items:center">
+        <span class="role-pill">Rider</span>
+        <div class="avatar" data-user-avatar>—</div>
+      </div>
+    </div>
+    <div class="availability-toggle" style="margin-bottom:24px">
+      <label class="switch">
+        <input type="checkbox" id="availableToggle">
+        <span class="track"></span>
+      </label>
+      <div>
+        <strong>Available for jobs</strong>
+        <div class="muted" style="font-size:13px">Turn this on to be notified of new requests near you.</div>
+      </div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="num" id="statActive">0</div><div class="label">Active jobs</div></div>
+      <div class="stat-card"><div class="num" id="statCompleted">0</div><div class="label">Completed jobs</div></div>
+    </div>
+    <div class="card">
+      <div class="flex-between">
+        <div><strong>Ready to earn?</strong><p class="muted" style="margin:4px 0 0">Check Available jobs for open requests in your city.</p></div>
+        <a href="available-jobs.html" class="btn btn-primary btn-sm">View jobs</a>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="module">import { initRiderDashboard } from "../js/rider.js"; initRiderDashboard();</script>
+</body>
+</html>
