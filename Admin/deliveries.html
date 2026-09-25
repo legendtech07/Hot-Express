@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deliveries — Hot Express Admin</title>
+<link rel="icon" href="../assets/images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/admin.css">
+
+</head>
+<body>
+<div class="mobile-topbar">
+  <button id="menuToggle" class="btn btn-outline btn-sm">☰</button>
+  <a href="../index.html" class="brand" style="font-size:15px"><img src="../assets/images/logo.png" style="height:22px"> Hot Express</a>
+  <span></span>
+</div>
+<div class="shell">
+  <aside class="sidebar">
+    <a href="../index.html" class="brand"><img src="../assets/images/logo.png" alt="Hot Express"> Hot Express</a>
+    <nav class="side-nav">
+      <div class="section-label">Admin</div>
+      <a href="dashboard.html"><span class="ic">📊</span> Overview</a>
+      <a href="users.html"><span class="ic">👥</span> Users</a>
+      <a href="vendors.html"><span class="ic">🏪</span> Vendors</a>
+      <a href="riders.html"><span class="ic">🏍</span> Riders</a>
+      <a href="deliveries.html" class="active"><span class="ic">📦</span> Deliveries</a>
+      <a href="payments.html"><span class="ic">💰</span> Payments</a>
+      <a href="disputes.html"><span class="ic">⚠️</span> Disputes</a>
+      <a href="settings.html"><span class="ic">⚙️</span> Settings</a>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="btn btn-outline btn-sm btn-block" id="logoutBtn">Log out</button>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="topbar"><div><h1>Deliveries</h1><div class="sub">Every request across the platform.</div></div><div class="avatar" data-user-avatar>—</div></div>
+    <div class="pill-toggle" id="statusFilter" style="margin-bottom:16px">
+      <button class="active" data-status="all">All</button>
+      <button data-status="pending">Pending</button>
+      <button data-status="accepted">Accepted</button>
+      <button data-status="in_transit">In transit</button>
+      <button data-status="delivered">Delivered</button>
+      <button data-status="cancelled">Cancelled</button>
+    </div>
+    <div class="card">
+      <table class="list-table">
+        <thead><tr><th>Item</th><th>Requester</th><th>Rider</th><th>City</th><th>Status</th><th>Date</th></tr></thead>
+        <tbody id="deliveriesBody"></tbody>
+      </table>
+    </div>
+  </main>
+</div>
+<script type="module">import { initAdminDeliveries } from "../js/admin.js"; initAdminDeliveries();</script>
+</body>
+</html>
