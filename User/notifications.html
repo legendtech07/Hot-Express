@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notifications — Hot Express</title>
+<link rel="icon" href="../assets/images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/user.css">
+
+</head>
+<body>
+<div class="mobile-topbar">
+  <button id="menuToggle" class="btn btn-outline btn-sm">☰</button>
+  <a href="../index.html" class="brand" style="font-size:15px"><img src="../assets/images/logo.png" style="height:22px"> Hot Express</a>
+  <span></span>
+</div>
+<div class="shell">
+  <aside class="sidebar">
+    <a href="../index.html" class="brand"><img src="../assets/images/logo.png" alt="Hot Express"> Hot Express</a>
+    <nav class="side-nav">
+      <div class="section-label">Buyer</div>
+      <a href="dashboard.html"><span class="ic">🏠</span> Dashboard</a>
+      <a href="deliveries.html"><span class="ic">📦</span> My deliveries</a>
+      <a href="request-rider.html"><span class="ic">🛵</span> Request a rider</a>
+      <a href="create-delivery.html"><span class="ic">✉️</span> Send a package</a>
+      <a href="notifications.html" class="active"><span class="ic">🔔</span> Notifications</a>
+      <a href="profile.html"><span class="ic">⚙️</span> Profile</a>
+      <div class="section-label">More</div>
+      <a href="../vendor/dashboard.html" id="vendorAreaLink" style="display:none"><span class="ic">🏪</span> Vendor area</a>
+      <a href="../rider/dashboard.html" id="riderAreaLink" style="display:none"><span class="ic">🏍</span> Rider area</a>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="btn btn-outline btn-sm btn-block" id="logoutBtn">Log out</button>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div><h1>Notifications</h1><div class="sub">Updates on your deliveries.</div></div>
+      <div class="user-chip"><div class="avatar" data-user-avatar>—</div></div>
+    </div>
+    <div id="notifList"></div>
+  </main>
+</div>
+<script type="module">
+  import { initNotifications } from "../js/user.js";
+  initNotifications();
+</script>
+</body>
+</html>

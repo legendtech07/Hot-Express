@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Send a package — Hot Express</title>
+<link rel="icon" href="../assets/images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/user.css">
+
+</head>
+<body>
+<div class="mobile-topbar">
+  <button id="menuToggle" class="btn btn-outline btn-sm">☰</button>
+  <a href="../index.html" class="brand" style="font-size:15px"><img src="../assets/images/logo.png" style="height:22px"> Hot Express</a>
+  <span></span>
+</div>
+<div class="shell">
+  <aside class="sidebar">
+    <a href="../index.html" class="brand"><img src="../assets/images/logo.png" alt="Hot Express"> Hot Express</a>
+    <nav class="side-nav">
+      <div class="section-label">Buyer</div>
+      <a href="dashboard.html"><span class="ic">🏠</span> Dashboard</a>
+      <a href="deliveries.html"><span class="ic">📦</span> My deliveries</a>
+      <a href="request-rider.html"><span class="ic">🛵</span> Request a rider</a>
+      <a href="create-delivery.html" class="active"><span class="ic">✉️</span> Send a package</a>
+      <a href="notifications.html"><span class="ic">🔔</span> Notifications</a>
+      <a href="profile.html"><span class="ic">⚙️</span> Profile</a>
+      <div class="section-label">More</div>
+      <a href="../vendor/dashboard.html" id="vendorAreaLink" style="display:none"><span class="ic">🏪</span> Vendor area</a>
+      <a href="../rider/dashboard.html" id="riderAreaLink" style="display:none"><span class="ic">🏍</span> Rider area</a>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="btn btn-outline btn-sm btn-block" id="logoutBtn">Log out</button>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div><h1>Send a package</h1><div class="sub">Door-to-door delivery for someone else.</div></div>
+      <div class="user-chip"><div class="avatar" data-user-avatar>—</div></div>
+    </div>
+    <div class="card" style="max-width:560px">
+      <p class="muted" style="margin-top:0">Use this when you're sending something to another person — a rider picks it up from you and delivers it to them.</p>
+      <form id="requestForm" novalidate>
+        <div class="field">
+          <label for="itemDescription">What are you sending?</label>
+          <input type="text" name="itemDescription" id="itemDescription" required placeholder="e.g. Documents, a small parcel">
+        </div>
+        <div class="field">
+          <label for="pickupAddress">Pickup from</label>
+          <input type="text" name="pickupAddress" id="pickupAddress" required placeholder="Your address">
+        </div>
+        <div class="field">
+          <label for="dropoffAddress">Deliver to</label>
+          <input type="text" name="dropoffAddress" id="dropoffAddress" required placeholder="Recipient's address">
+        </div>
+        <div class="field">
+          <label for="recipientName">Recipient's name</label>
+          <input type="text" name="recipientName" id="recipientName" required placeholder="Who is receiving it?">
+        </div>
+        <div class="field">
+          <label for="recipientPhone">Recipient's phone</label>
+          <input type="tel" name="recipientPhone" id="recipientPhone" required placeholder="080…">
+        </div>
+        <div class="field">
+          <label for="notes">Notes for the rider (optional)</label>
+          <textarea name="notes" id="notes"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send request</button>
+      </form>
+    </div>
+  </main>
+</div>
+<script type="module">
+  import { initRequestRider } from "../js/user.js";
+  initRequestRider("send");
+</script>
+</body>
+</html>

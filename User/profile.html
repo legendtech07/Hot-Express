@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile — Hot Express</title>
+<link rel="icon" href="../assets/images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/user.css">
+
+</head>
+<body>
+<div class="mobile-topbar">
+  <button id="menuToggle" class="btn btn-outline btn-sm">☰</button>
+  <a href="../index.html" class="brand" style="font-size:15px"><img src="../assets/images/logo.png" style="height:22px"> Hot Express</a>
+  <span></span>
+</div>
+<div class="shell">
+  <aside class="sidebar">
+    <a href="../index.html" class="brand"><img src="../assets/images/logo.png" alt="Hot Express"> Hot Express</a>
+    <nav class="side-nav">
+      <div class="section-label">Buyer</div>
+      <a href="dashboard.html"><span class="ic">🏠</span> Dashboard</a>
+      <a href="deliveries.html"><span class="ic">📦</span> My deliveries</a>
+      <a href="request-rider.html"><span class="ic">🛵</span> Request a rider</a>
+      <a href="create-delivery.html"><span class="ic">✉️</span> Send a package</a>
+      <a href="notifications.html"><span class="ic">🔔</span> Notifications</a>
+      <a href="profile.html" class="active"><span class="ic">⚙️</span> Profile</a>
+      <div class="section-label">More</div>
+      <a href="../vendor/dashboard.html" id="vendorAreaLink" style="display:none"><span class="ic">🏪</span> Vendor area</a>
+      <a href="../rider/dashboard.html" id="riderAreaLink" style="display:none"><span class="ic">🏍</span> Rider area</a>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="btn btn-outline btn-sm btn-block" id="logoutBtn">Log out</button>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div><h1>Profile</h1><div class="sub">Your account details.</div></div>
+      <div class="user-chip"><div class="avatar" data-user-avatar>—</div></div>
+    </div>
+    <div class="grid" style="grid-template-columns:1fr 1fr;align-items:start">
+      <div class="card">
+        <h3 style="margin-top:0">Edit details</h3>
+        <form id="profileForm" novalidate>
+          <div class="field"><label for="name">Full name</label><input type="text" name="name" id="name" required></div>
+          <div class="field"><label for="phone">Phone</label><input type="tel" name="phone" id="phone" required></div>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </form>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Account</h3>
+        <p class="muted">Email<br><strong id="emailDisplay" style="color:var(--text)"></strong></p>
+        <p class="muted">City<br><strong id="locationDisplay" style="color:var(--text)"></strong></p>
+        <p class="muted">Roles<br><strong id="rolesDisplay" style="color:var(--text)"></strong></p>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="module">
+  import { initProfile } from "../js/user.js";
+  initProfile();
+</script>
+</body>
+</html>
