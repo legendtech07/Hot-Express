@@ -1,0 +1,6 @@
+/* User-area specific tweaks (extends dashboard.css) */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
+.product-card { background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.product-card .thumb { height: 130px; background: linear-gradient(135deg, var(--teal-dim), var(--bg-raised)); display: flex; align-items: center; justify-content: center; font-size: 30px; }
+.product-card .body { padding: 14px; }
+.product-card .price { color: var(--accent); font-weight: 700; font-family: var(--font-display); }

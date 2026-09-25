@@ -1,0 +1,4 @@
+/* Vendor-area specific tweaks (extends dashboard.css) */
+.modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: none; align-items: center; justify-content: center; z-index: 300; }
+.modal-backdrop.open { display: flex; }
+.modal { background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; width: 100%; max-width: 440px; max-height: 90vh; overflow-y: auto; }
