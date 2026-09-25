@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Hot Express Vendor</title>
+<link rel="icon" href="../assets/images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/user.css">
+<link rel="stylesheet" href="../css/vendor.css">
+
+</head>
+<body>
+<div class="mobile-topbar">
+  <button id="menuToggle" class="btn btn-outline btn-sm">☰</button>
+  <a href="../index.html" class="brand" style="font-size:15px"><img src="../assets/images/logo.png" style="height:22px"> Hot Express</a>
+  <span></span>
+</div>
+<div class="shell">
+  <aside class="sidebar">
+    <a href="../index.html" class="brand"><img src="../assets/images/logo.png" alt="Hot Express"> Hot Express</a>
+    <nav class="side-nav">
+      <div class="section-label">Vendor</div>
+      <a href="dashboard.html" class="active"><span class="ic">🏪</span> Dashboard</a>
+      <a href="deliveries.html"><span class="ic">📦</span> Fulfilments</a>
+      <a href="create-delivery.html"><span class="ic">🛵</span> Request a rider</a>
+      <a href="notifications.html"><span class="ic">🔔</span> Notifications</a>
+      <a href="profile.html"><span class="ic">⚙️</span> Vendor profile</a>
+      <div class="section-label">More</div>
+      <a href="../user/dashboard.html"><span class="ic">🏠</span> Buyer area</a>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="btn btn-outline btn-sm btn-block" id="logoutBtn">Log out</button>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div><h1>Vendor dashboard</h1><div class="sub">Welcome, <span data-user-name>—</span> · <span data-user-location>—</span></div></div>
+      <div class="flex" style="gap:12px;align-items:center">
+        <span class="role-pill">Vendor</span>
+        <div class="avatar" data-user-avatar>—</div>
+      </div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="num" id="statListed">0</div><div class="label">Listed items</div></div>
+      <div class="stat-card"><div class="num" id="statSold">0</div><div class="label">Sold</div></div>
+    </div>
+    <div class="flex-between" style="margin-bottom:14px">
+      <h3 style="margin:0">Your items</h3>
+      <button class="btn btn-primary btn-sm" id="openNewProduct">+ Post an item</button>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+
+    <div class="modal-backdrop" id="newProductModal">
+      <div class="modal">
+        <h3 style="margin-top:0">Post a new item</h3>
+        <form id="newProductForm" novalidate>
+          <div class="field"><label for="title">Item name</label><input type="text" name="title" id="title" required></div>
+          <div class="field"><label for="description">Description</label><textarea name="description" id="description"></textarea></div>
+          <div class="field"><label for="price">Price (₦)</label><input type="number" name="price" id="price" required min="0"></div>
+          <div style="display:flex;gap:10px">
+            <button type="submit" class="btn btn-primary" style="flex:1">Post item</button>
+            <button type="button" class="btn btn-outline" id="closeNewProduct">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="module">import { initVendorDashboard } from "../js/vendor.js"; initVendorDashboard();</script>
+</body>
+</html>
