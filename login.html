@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log in — Hot Express</title>
+<link rel="icon" href="assets/images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+<div class="auth-wrap">
+  <div class="auth-side">
+    <a href="index.html" class="brand"><img src="assets/images/logo.png" alt="Hot Express"> Hot Express</a>
+    <div class="quote">"Request a rider, <span>track it live</span>, get it delivered." <br><br><span style="font-size:15px;color:var(--text-dim);font-family:var(--font-body);font-weight:400">Now serving Ondo &amp; Enugu.</span></div>
+  </div>
+  <div class="auth-form-col">
+    <div class="auth-box">
+      <h1>Welcome back</h1>
+      <p>Log in to request a rider, check your deliveries, or manage your store.</p>
+      <form id="loginForm" novalidate>
+        <div class="auth-error"></div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" required placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Log in</button>
+      </form>
+      <div class="auth-switch">New to Hot Express? <a href="register.html">Create an account</a></div>
+    </div>
+  </div>
+</div>
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/auth.js"></script>
+</body>
+</html>

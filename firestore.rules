@@ -1,0 +1,66 @@
+rules_version = '2';
+
+// Deploy with: firebase deploy --only firestore:rules
+// (Not part of the original file tree — added because the app is
+// unusable/unsafe in production without it. See README "Firestore setup".)
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() { return request.auth != null; }
+    function isSelf(uid) { return isSignedIn() && request.auth.uid == uid; }
+    function isAdmin() {
+      return isSignedIn() &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
+    }
+
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow create: if isSelf(userId);
+      // Prevent someone granting themselves roles/admin after signup.
+      allow update: if isSelf(userId) &&
+        request.resource.data.roles == resource.data.roles &&
+        request.resource.data.isAdmin == resource.data.isAdmin;
+      allow update: if isAdmin();
+    }
+
+    match /products/{productId} {
+      allow read: if true;
+      allow create: if isSignedIn() && request.resource.data.vendorId == request.auth.uid;
+      allow update, delete: if isSignedIn() && resource.data.vendorId == request.auth.uid;
+    }
+
+    match /deliveryRequests/{requestId} {
+      allow read: if isSignedIn() && (
+        resource.data.requesterId == request.auth.uid ||
+        resource.data.riderId == request.auth.uid ||
+        resource.data.vendorId == request.auth.uid ||
+        isAdmin()
+      );
+      allow create: if isSignedIn() && request.resource.data.requesterId == request.auth.uid;
+      // A rider may only claim an unclaimed job for themselves; the
+      // requester (or the claimed rider) may update it afterwards.
+      allow update: if isSignedIn() && (
+        (resource.data.status == 'pending' && request.resource.data.riderId == request.auth.uid) ||
+        resource.data.riderId == request.auth.uid ||
+        resource.data.requesterId == request.auth.uid ||
+        isAdmin()
+      );
+    }
+
+    match /notifications/{notifId} {
+      allow read, update: if isSignedIn() && resource.data.toUserId == request.auth.uid;
+      allow create: if isSignedIn();
+    }
+
+    match /disputes/{disputeId} {
+      allow read: if isAdmin();
+      allow create: if isSignedIn();
+    }
+
+    match /settings/{docId} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
+    }
+  }
+}

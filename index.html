@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hot Express — Request a rider in minutes</title>
+<link rel="icon" href="assets/images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .hero { padding: 70px 0 90px; position: relative; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: -20% -10% auto -10%; height: 480px;
+    background: radial-gradient(ellipse at 30% 20%, rgba(255,138,52,.16), transparent 60%),
+                radial-gradient(ellipse at 75% 0%, rgba(47,184,198,.14), transparent 55%);
+    pointer-events: none;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 50px; align-items: center; position: relative; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 18px; }
+  .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .hero h1 { font-size: 46px; max-width: 560px; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p.lead { font-size: 17px; max-width: 480px; }
+  .hero-actions { display: flex; gap: 14px; margin-top: 28px; }
+  .hero-locations { margin-top: 34px; display: flex; gap: 22px; font-family: var(--font-mono); font-size: 13px; color: var(--text-faint); }
+  .hero-locations b { color: var(--text-dim); font-weight: 600; }
+
+  /* Route map illustration */
+  .route-card { background: var(--bg-card); border: 1px solid var(--line); border-radius: 20px; padding: 26px; }
+  .route-card svg { width: 100%; height: auto; display: block; }
+  .route-legend { display: flex; justify-content: space-between; margin-top: 16px; font-size: 12px; color: var(--text-faint); }
+
+  section.services { padding: 70px 0; border-top: 1px solid var(--line); }
+  .services-head { max-width: 560px; margin-bottom: 42px; }
+  .services-head .eyebrow { color: var(--teal); }
+  .services-head .eyebrow::before { background: var(--teal); }
+  .service-rail { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
+  .service-row { display: grid; grid-template-columns: 90px 1fr; gap: 20px; padding: 26px 0; border-top: 1px solid var(--line); }
+  .service-row:nth-child(1), .service-row:nth-child(2) { border-top: none; }
+  .service-num { font-family: var(--font-mono); font-size: 15px; color: var(--accent); padding-top: 3px; }
+  .service-row h3 { font-size: 18px; margin-bottom: 6px; }
+  .service-row p { font-size: 14px; margin: 0; }
+
+  section.how { padding: 70px 0; border-top: 1px solid var(--line); }
+  .how-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .how-step { padding: 20px 0; }
+  .how-step .n { font-family: var(--font-mono); color: var(--text-faint); font-size: 13px; }
+  .how-step h4 { font-size: 16px; margin: 8px 0 4px; }
+  .how-step p { font-size: 13px; }
+
+  section.cta { padding: 60px 0 90px; }
+  .cta-box { background: linear-gradient(135deg, rgba(255,138,52,.12), rgba(47,184,198,.1)); border: 1px solid var(--line); border-radius: 20px; padding: 46px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .cta-box h2 { font-size: 26px; margin: 0 0 6px; }
+
+  footer { border-top: 1px solid var(--line); padding: 30px 0; }
+  footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--text-faint); }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 34px; }
+    .service-rail { grid-template-columns: 1fr; }
+    .service-row:nth-child(2) { border-top: 1px solid var(--line); }
+    .how-steps { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a href="index.html" class="brand"><img src="assets/images/logo.png" alt="Hot Express"> Hot Express</a>
+    <div class="nav-links">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#how">How it works</a>
+    </div>
+    <div class="nav-cta">
+      <a href="login.html" class="btn btn-outline btn-sm">Log in</a>
+      <a href="register.html" class="btn btn-primary btn-sm">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Now live in Ondo &amp; Enugu</div>
+      <h1>Need something moved? <em>Request a rider</em> in minutes.</h1>
+      <p class="lead">Hot Express connects buyers, vendors and independent riders in one place — pick something up, send a package, or sell to people nearby. Riders choose the jobs they take; nothing is force-assigned.</p>
+      <div class="hero-actions">
+        <a href="register.html" class="btn btn-primary">Create a free account</a>
+        <a href="register.html" class="btn btn-outline">Become a rider</a>
+      </div>
+      <div class="hero-locations">
+        <div><b>Ondo</b> — active</div>
+        <div><b>Enugu</b> — active</div>
+        <div><b>POD</b> — pay on delivery</div>
+      </div>
+    </div>
+    <div class="route-card">
+      <svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M30 250 C 90 180, 60 120, 140 100 S 250 40, 350 60" fill="none" stroke="#232c40" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+        <path d="M30 250 C 90 180, 60 120, 140 100 S 250 40, 350 60" fill="none" stroke="#ff8a34" stroke-width="3" stroke-dasharray="7 220" stroke-linecap="round">
+          <animate attributeName="stroke-dashoffset" from="0" to="-500" dur="6s" repeatCount="indefinite"/>
+        </path>
+        <circle cx="30" cy="250" r="7" fill="#0b0f17" stroke="#38c07a" stroke-width="3"/>
+        <circle cx="350" cy="60" r="7" fill="#0b0f17" stroke="#ff8a34" stroke-width="3"/>
+        <text x="42" y="255" fill="#9aa3b8" font-family="JetBrains Mono, monospace" font-size="11">Pickup</text>
+        <text x="290" y="50" fill="#9aa3b8" font-family="JetBrains Mono, monospace" font-size="11">Drop-off</text>
+        <g transform="translate(150,95)">
+          <rect x="-16" y="-12" width="32" height="24" rx="5" fill="#161d2d" stroke="#2fb8c6"/>
+          <text x="0" y="4" fill="#2fb8c6" font-family="JetBrains Mono, monospace" font-size="12" text-anchor="middle">🏍</text>
+        </g>
+      </svg>
+      <div class="route-legend"><span>Live tracking, from accept to delivered</span><span>~18 min avg</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-head">
+      <div class="eyebrow">What you can do on Hot Express</div>
+      <h2>Four ways to move things around town</h2>
+    </div>
+    <div class="service-rail">
+      <div class="service-row">
+        <div class="service-num">01</div>
+        <div><h3>Request a rider</h3><p>Have something sitting at an office, a Jumia pickup point, or a shop? Request a nearby rider to go get it and bring it to you.</p></div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">02</div>
+        <div><h3>Send a package</h3><p>Door-to-door delivery for individuals — tell us where it's going, a rider nearby picks it up and takes it there.</p></div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">03</div>
+        <div><h3>Buy from local vendors</h3><p>Browse items posted by vendors near you, buy directly, and request a rider to bring it to your door.</p></div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">04</div>
+        <div><h3>Sell as a vendor</h3><p>Post what you're selling, get discovered by buyers in Ondo or Enugu, and hand off delivery to a rider.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="container">
+    <div class="services-head">
+      <div class="eyebrow" style="color:var(--accent)"><span></span>How it works</div>
+      <h2>Riders aren't assigned — they choose</h2>
+    </div>
+    <div class="how-steps">
+      <div class="how-step"><div class="n">01</div><h4>You request</h4><p>Describe the item and the route. It goes out instantly.</p></div>
+      <div class="how-step"><div class="n">02</div><h4>Nearby riders are notified</h4><p>Only riders in your city who've marked themselves available see it.</p></div>
+      <div class="how-step"><div class="n">03</div><h4>One accepts</h4><p>First rider to accept gets the job — no waiting on a dispatcher.</p></div>
+      <div class="how-step"><div class="n">04</div><h4>You track it live</h4><p>Pickup → in transit → delivered, with the rider's contact on hand.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container cta-box">
+    <div>
+      <h2>Ready to move something?</h2>
+      <p class="mt-0" style="margin:0">It takes under a minute to create an account.</p>
+    </div>
+    <div style="display:flex;gap:12px">
+      <a href="register.html" class="btn btn-primary">Create free account</a>
+      <a href="login.html" class="btn btn-outline">I already have one</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="brand" style="font-size:14px"><img src="assets/images/logo.png" alt="" style="height:22px"> Hot Express</div>
+    <div>Ondo · Enugu — © <span id="year"></span> Hot Express</div>
+  </div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

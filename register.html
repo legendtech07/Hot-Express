@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create an account — Hot Express</title>
+<link rel="icon" href="assets/images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+<div class="auth-wrap">
+  <div class="auth-side">
+    <a href="index.html" class="brand"><img src="assets/images/logo.png" alt="Hot Express"> Hot Express</a>
+    <div class="quote">Every account can buy. <span>Add vendor or rider</span> powers if you need them.</div>
+  </div>
+  <div class="auth-form-col">
+    <div class="auth-box">
+      <h1>Create your account</h1>
+      <p>Takes under a minute. You can always add rider or vendor access later from your profile.</p>
+      <form id="registerForm" novalidate>
+        <div class="auth-error"></div>
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" name="name" id="name" required placeholder="e.g. Adaeze Okonkwo">
+        </div>
+        <div class="field">
+          <label for="phone">Phone number</label>
+          <input type="tel" name="phone" id="phone" required placeholder="080…">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" required placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" required minlength="6" placeholder="At least 6 characters">
+        </div>
+        <div class="field">
+          <label for="location">Your city</label>
+          <select name="location" id="location" required>
+            <option value="" disabled selected>Select your city</option>
+          </select>
+          <div class="field-hint">Hot Express currently operates in Ondo and Enugu only.</div>
+        </div>
+        <div class="field">
+          <label>Account type</label>
+          <div class="role-options">
+            <label class="role-option">
+              <input type="radio" name="extraRole" value="none" checked>
+              <span><strong>Just a buyer</strong><span>Request riders and buy from vendors.</span></span>
+            </label>
+            <label class="role-option">
+              <input type="radio" name="extraRole" value="vendor">
+              <span><strong>Buyer + Vendor</strong><span>Everything a buyer can do, plus post items for sale.</span></span>
+            </label>
+            <label class="role-option">
+              <input type="radio" name="extraRole" value="rider">
+              <span><strong>Buyer + Rider</strong><span>Everything a buyer can do, plus accept delivery jobs nearby.</span></span>
+            </label>
+          </div>
+        </div>
+        <div class="field" id="vehicleField" style="display:none">
+          <label for="vehicleType">Vehicle type</label>
+          <select name="vehicleType" id="vehicleType">
+            <option value="bike">Motorbike</option>
+            <option value="keke">Keke / tricycle</option>
+            <option value="car">Car</option>
+            <option value="bicycle">Bicycle</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create account</button>
+      </form>
+      <div class="auth-switch">Already have an account? <a href="login.html">Log in</a></div>
+    </div>
+  </div>
+</div>
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/auth.js"></script>
+</body>
+</html>
